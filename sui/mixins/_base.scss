@@ -1,0 +1,50 @@
+// Scrollable
+@mixin scrollable() {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin not-scrollable() {
+    overflow: hidden;
+    -webkit-overflow-scrolling: auto;
+}
+// Disabled
+@mixin disabled() {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+@mixin appearance() {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+@mixin hidden() {
+    display: none;
+    opacity: 0;
+}
+
+@mixin visible() {
+    display: block;
+    opacity: 1;
+}
+
+@mixin list-none() {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin hide-text() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// New mixin to use as of v3.0.1
+@mixin text-hide() {
+  @include hide-text;
+}

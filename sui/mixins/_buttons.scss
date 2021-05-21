@@ -1,0 +1,21 @@
+@mixin button-color($bgColor,$hoverColor, $textColor: #fff) {
+    border-color: transparent;
+    background: $bgColor;
+    color: $textColor;
+
+    &:active {
+        color: rgba(red($textColor), green($textColor), blue($textColor), .8);
+        background: darken($hoverColor,8%);
+    }
+}
+
+@mixin button-color-outline($bgColor,$hoverColor,$textColor: #fff) {
+    border-color: $bgColor;
+    background: none;
+    color: $bgColor;
+
+    &:active {
+        color: rgba(red($textColor), green($textColor), blue($textColor), .8);
+        background: $hoverColor;
+    }
+}

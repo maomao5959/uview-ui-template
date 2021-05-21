@@ -1,0 +1,10 @@
+@mixin no-margin(){
+    #{'.no-margin'} { margin: 0 !important; } 
+    #{'.no-margin-hr'} { margin-left: 0 !important; margin-right: 0 !important; } 
+    #{'.no-margin-vr'} { margin-top: 0 !important; margin-bottom: 0 !important; } 
+    #{'.no-margin-l'} { margin-left: 0 !important; } 
+    #{'.no-margin-r'} { margin-right: 0 !important; } 
+    #{'.no-margin-t'} { margin-top: 0 !important; } 
+    #{'.no-margin-b'} { margin-bottom: 0 !important; }
+}
+@include no-margin;

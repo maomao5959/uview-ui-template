@@ -1,0 +1,136 @@
+@mixin hairline-top($color: $border-color) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid $color;
+    color: $color;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+
+@mixin hairline-bottom($color: $border-color) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid $color;
+    color: $color;
+    transform-origin: 0 100%;
+    transform: scaleY(0.5);
+}
+
+@mixin hairline-left($color: $border-color) {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-left: 1px solid $color;
+    color: $color;
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+}
+
+@mixin hairline-right($color: $border-color) {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid $color;
+    color: $color;
+    transform-origin: 100% 0;
+    transform: scaleX(0.5);
+}
+
+@mixin hairline($position,$color: $border-color) {
+    @if $position == "top" {
+        &:before {
+            z-index: 15;
+            @include hairline-top($color);
+        }
+    }
+    @else if $position == "left" {
+        &:after {
+            z-index: 15;
+            @include hairline-left($color);
+        }
+    }
+    @else if $position == "right" {
+        &:before {
+            z-index: 15;
+            @include hairline-right($color);
+        }
+    }
+    @else if $position == "bottom" {
+        &:after {
+            z-index: 15;
+            @include hairline-bottom($color);
+        }
+    }
+}
+
+@mixin hairline-remove($position: all) {
+    @if($position == 'top' or $position == 'right' or $position == 'all') {
+        &:before {
+            display: none !important;
+        }
+    }
+
+    @if($position == 'left' or $position == 'bottom' or $position == 'all') {
+        &:after {
+            display: none !important;
+        }
+    }
+}
+
+// No Hairlines
+@mixin no-hairlines() {
+    &.no-hairlines, &.no-hairlines ul, .md &.no-hairlines-md, .md &.no-hairlines-md ul, .ios &.no-hairlines-ios, .ios &.no-hairlines-ios ul {
+        @include hairline-remove;
+    }
+
+    &.no-hairline-top, &.no-hairline-top ul, .md &.no-hairline-top-md, .md &.no-hairline-top-md ul, .ios &.no-hairline-top-ios, .ios &.no-hairline-top-ios ul {
+        @include hairline-remove(top);
+    }
+
+    &.no-hairline-bottom, &.no-hairline-bottom ul, .md &.no-hairline-bottom-md, .md &.no-hairline-bottom-md ul, .ios &.no-hairline-bottom-ios, .ios &.no-hairline-bottom-ios ul {
+        @include hairline-remove(bottom);
+    }
+}
+
+@mixin no-hairlines-between() {
+    &.no-hairlines-between {
+        .item-inner, .list-button, .item-divider, .list-group-title, .list-group-title {
+            @include hairline-remove(bottom);
+        }
+
+        &.simple-list li {
+            @include hairline-remove(bottom);
+        }
+
+        &.links-list a {
+            @include hairline-remove(bottom);
+        }
+    }
+}
+
+@mixin hairline-color($position, $color) {
+    @if($position == 'top' or $position == 'right') {
+        &:before {
+            background-color: $color;
+        }
+    }
+    @else {
+        &:after {
+            background-color: $color;
+        }
+    }
+}

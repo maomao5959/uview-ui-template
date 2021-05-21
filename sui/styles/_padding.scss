@@ -1,0 +1,35 @@
+@mixin no-padding(){
+    #{'.no-padding'} { padding: 0 !important; } 
+    #{'.no-padding-hr'} { padding-left: 0 !important; padding-right: 0 !important; } 
+    #{'.no-padding-vr'} { padding-top: 0 !important; padding-bottom: 0 !important; } 
+    #{'.no-padding-l'} { padding-left: 0 !important; } 
+    #{'.no-padding-r'} { padding-right: 0 !important; } 
+    #{'.no-padding-t'} { padding-top: 0 !important; } 
+    #{'.no-padding-b'} { padding-bottom: 0 !important; }
+}
+@mixin padding(){
+    #{'.padding'} { padding: $padding !important; } 
+    #{'.padding-hr'} { padding-left: $padding !important; padding-right: $padding !important; } 
+    #{'.padding-vr'} { padding-top: $padding !important; padding-bottom: $padding !important; } 
+    #{'.padding-l'} { padding-left: $padding !important; } 
+    #{'.padding-r'} { padding-right: $padding !important; } 
+    #{'.padding-t'} { padding-top: $padding !important; } 
+    #{'.padding-b'} { padding-bottom: $padding !important; }
+}
+@mixin padding-key($key,$value){
+    #{'.padding-' + $key} { padding: $value !important; } 
+    #{'.padding-hr-' + $key} { padding-left: $value !important; padding-right: $value !important; } 
+    #{'.padding-vr-' + $key} { padding-top: $value !important; padding-bottom: $value !important; } 
+    #{'.padding-l-' + $key} { padding-left: $value !important; } 
+    #{'.padding-r-' + $key} { padding-right: $value !important; } 
+    #{'.padding-t-' + $key} { padding-top: $value !important; } 
+    #{'.padding-b-' + $key} { padding-bottom: $value !important; }
+}
+@include no-padding;
+@include padding();
+@include padding-key('sm',15rpx);
+@include padding-key('xs',5rpx);
+@include padding-key('lg',35rpx);
+.padding {
+    padding: 30rpx;
+}

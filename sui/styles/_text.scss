@@ -1,0 +1,42 @@
+// .text-hide { @include text-hide; }
+.text-bold {
+    font-weight: bold;
+}
+
+// .text-italic {font-style: italic;}
+// .text-delete {text-decoration: line-through;}
+// .text-underline {text-decoration: underline;}
+// .text-overflow{display:block;@include text-overflow;}
+// .text-normal{font-weight:normal;}
+// .text-middle{vertical-align:middle;}
+
+// // Alignment
+// .text-left {text-align: left;}
+// .text-right { text-align: right; }
+// .text-center { text-align: center; }
+// .text-justify { text-align: justify; }
+// .text-nowrap { white-space: nowrap; }
+
+// // Transformation
+// .text-lowercase { text-transform: lowercase; }
+// .text-uppercase { text-transform: uppercase; }
+// .text-capitalize { text-transform: capitalize; }
+
+// //首行缩进
+// .text-indent { text-indent: 2em !important; }
+
+// //字体大小
+// .text-8{font-size:8rpx !important;}
+// .text-10{font-size:10rpx !important;}
+// .text-12{font-size:12rpx !important;}
+// .text-14{font-size:14rpx !important;}
+// .text-16{font-size:16rpx !important;}
+// .text-18{font-size:18rpx !important;}
+// .text-20{font-size:18px !important;}
+// .text-25{font-size:25px !important;}
+// .text-30{font-size:25px !important;}
+@for $i from 0 through 9 {
+    .opacity-#{$i} {
+        opacity: $i / 10;
+    }
+}

@@ -1,0 +1,4 @@
+@mixin transition-dp($property,$duration: 0.3s) {
+	transition-property: $property;
+	transition-duration: $duration;
+}

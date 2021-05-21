@@ -1,0 +1,76 @@
+// u-loading-colors
+@each $key, $value in $colors {
+	.loading-#{$key} .u-loading {
+		@if $key != 'white' {
+			border-color:#e4e4e4 #e4e4e4 #e4e4e4 $value !important;
+		}
+	}
+}
+
+// u-no-borders
+@mixin u-no-border(){
+    #{'.no-border .u-btn:after'} { border:0 !important;  } 
+    #{'.no-border-hr .u-btn:after'} { border-left: 0 !important; border-right: 0 !important; } 
+    #{'.no-border-vr .u-btn:after'} { border-top: 0 !important; border-bottom: 0 !important; } 
+    #{'.no-border-l .u-btn:after'} { border-left: 0 !important; } 
+    #{'.no-border-r .u-btn:after'} { border-right: 0 !important; } 
+    #{'.no-border-t .u-btn:after'} { border-top: 0 !important; } 
+    #{'.no-border-b .u-btn:after'} { border-bottom: 0 !important; }
+}
+@include u-no-border;
+
+//u-btns
+@mixin u-button-color($bgColor,$hoverColor, $textColor: #fff) {
+    border-color: transparent !important;
+    background-color: $bgColor !important;
+    color: $textColor !important;
+	border:0;
+	&::after{
+		border:0;
+	}
+
+    &:active {
+        background-color: lighten($hoverColor,10%) !important;
+    }
+}
+u-button {
+	@each $key, $value in $colors {
+		&.btn-#{$key} .u-btn--default {
+			@if $key == 'white' {
+				@include u-button-color($value,$value,$themeColor);
+			} @else if $key == 'gray' {
+				@include u-button-color($gray-200,$gray-300,#606266);
+			} @else {
+				display:$key;
+				@include u-button-color($value,$value);
+			}
+		}
+	}
+}
+//u-cell-group
+u-cell-group{
+	u-cell-item{
+		&:last-child{
+			.u-cell:after {
+				display: none !important;
+			}
+		}
+	}
+}
+.u-cell {
+	padding: 20rpx 32rpx !important;
+	line-height: 1.3 !important;
+}
+//u-form
+u-form{
+	u-form-item {
+		.u-form-item {
+			padding: 10rpx 0 !important;
+		}
+		&:last-child{
+			.u-form-item:after {
+				display: none !important;
+			}
+		}
+	}
+}

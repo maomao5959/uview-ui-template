@@ -1,0 +1,10 @@
+@mixin no-border(){
+    #{'.no-border'} { border: 0 !important;&.block-strong{ @include hairline-remove(); } } 
+    #{'.no-border-hr'} { border-left: 0 !important; border-right: 0 !important;&.block-strong{ @include hairline-remove('left');@include hairline-remove('right');} } 
+    #{'.no-border-vr'} { border-top: 0 !important; border-bottom: 0 !important;&.block-strong{ @include hairline-remove('top');@include hairline-remove('bottom');} } 
+    #{'.no-border-l'} { border-left: 0 !important; &.block-strong{ @include hairline-remove('left'); }} 
+    #{'.no-border-r'} { border-right: 0 !important; &.block-strong{ @include hairline-remove('right'); }} 
+    #{'.no-border-t'} { border-top: 0 !important; &.block-strong{ @include hairline-remove('top'); }} 
+    #{'.no-border-b'} { border-bottom: 0 !important;&.block-strong{ @include hairline-remove('bottom'); } }
+}
+@include no-border;

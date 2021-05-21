@@ -1,0 +1,92 @@
+.block {
+    padding: 0 $padding;
+    position: relative;
+	&.inset {
+	    border-radius: 14rpx;
+	    margin-left: $padding;
+	    margin-right: $padding;
+		overflow: hidden;
+	}
+}
+
+.block-title {
+    color: $color-gray;
+    margin: $margin $padding 10px;
+    font-size: 14px;
+    line-height: 17px;
+
+    + .list, + .block, + .card, + .timeline, + .block-header, + .preview, + .grid-group, + .profile {
+        margin-top: 10px;
+    }
+}
+
+.block-strong {
+    background: $color-white;
+    padding: $padding;
+
+    @include hairline(top);
+    @include hairline(bottom);
+
+    &.inset {
+        @include hairline-remove()
+    }
+}
+
+// .block-header, .block-footer {
+//     padding: 0 15px;
+//     color: $gray;
+
+//     ul, p, h1, h2, h3, h4 {
+//         &:first-child {
+//             margin-top: 0;
+//         }
+
+//         &:last-child {
+//             margin-bottom: 0;
+//         }
+
+//         &:first-child:last-child {
+//             margin-top: 0;
+//             margin-bottom: 0;
+//         }
+//     }
+// }
+
+// .block {
+//     .block-header, .block-footer {
+//         padding: 0 !important;
+//     }
+// }
+
+// .block-header {
+//     margin-bottom: 10px;
+//     margin-top: $margin;
+
+//     + .list, + .block, + .card, + .timeline {
+//         margin-top: 10px;
+//     }
+// }
+
+// .block-footer {
+//     margin-top: 10px;
+//     margin-bottom: $margin;
+// }
+
+// .list, .block, .card, .timeline {
+//     .block-header {
+//         margin-top: 0;
+//     }
+
+//     .block-footer {
+//         margin-bottom: 0;
+//     }
+
+//     + .block-footer {
+//         margin-top: -25px;
+//     }
+// }
+
+// .block + .block-footer {
+//     margin-top: -25px;
+//     margin-bottom: $margin;
+// }

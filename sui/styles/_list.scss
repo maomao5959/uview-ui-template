@@ -1,0 +1,318 @@
+// @import "../_mixins.scss";
+// @import "../_variables.scss";
+
+
+// /*list-view*/
+// .list {
+//     position: relative;
+//     z-index: 1;
+//     margin: $margin 0;
+//     font-size: 17px;
+// 	background: #fff;
+// 	@include hairline(top);
+// 	@include hairline(bottom);
+
+// 	.list {
+// 		@include hairline-remove;
+// 		padding-left: 45px;
+// 	}
+
+//     &.not-hairline {
+//             @include hairline-remove;
+//     }
+
+//     .list-item {
+//         position: relative;
+//     }
+
+//     .item-inner {
+//         position: relative;
+//         width: 100%;
+//         min-width: 0;
+//         min-height: $listHeight;
+//         padding: 8px 0;
+//         padding-right: 15px;
+//         display: flex;
+//         justify-content: space-between;
+//         box-sizing: border-box;
+//         align-items: center;
+//         align-self: stretch;
+//         @include hairline(bottom);
+//     }
+
+//     .item-media {
+//         padding-top: 8px;
+//         padding-bottom: 8px;
+//         flex-shrink: 0;
+//         display: flex;
+//         flex-wrap: nowrap;
+//         align-items: center;
+//         color: $color-gray;
+//         @include text-overflow;
+
+//         .si {
+//             width: 24px;
+//             height: 24px;
+//             font-size: 24px;
+//         }
+
+//         img.item-icon {
+//             width: 24px;
+//             height: 24px;
+//             @include border-radius(24px);
+//         }
+
+//         & + .item-inner {
+//             margin-left: 10px;
+//         }
+//     }
+
+//     .item-title {
+//         min-width: 0;
+//         flex-shrink: 1;
+//         position: relative;
+//         max-width: 100%;
+//         @include text-overflow;
+//     }
+
+//     .item-after {
+//         white-space: nowrap;
+//         flex-shrink: 0;
+//         display: flex;
+//         margin-left: auto;
+//         color: $color-gray;
+//         padding-left: 5px;
+//     }
+
+//     .item-link, .list-button {
+//         color: inherit;
+//         @include transition-dp(background-color);
+//         display: block;
+//         position: relative;
+//         overflow: hidden;
+//         z-index: 0;
+
+//         .item-inner {
+//             padding-right: 35px;
+//         }
+
+//         &:active {
+//             transition-duration: 0ms;
+//             background-color: #d9d9d9;
+
+//             .item-inner {
+//                 @include hairline-color(bottom, transparent);
+//             }
+//         }
+//     }
+
+//     .list-button {
+//         padding: 0 15px;
+//         text-align: center;
+//         color: $themeColor;
+//         line-height: $listHeight;
+//     }
+
+//     .item-content {
+//         min-height: $listHeight;
+//         padding-left: 15px;
+//         display: flex;
+//         justify-content: space-between;
+//         box-sizing: border-box;
+//         align-items: center;
+//     }
+
+//     .item-subtitle {
+//         position: relative;
+//         max-width: 100%;
+//         font-size: 15px;
+//         @include text-overflow;
+//     }
+
+//     .item-text {
+//         position: relative;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         -webkit-line-clamp: 2;
+//         -webkit-box-orient: vertical;
+//         display: -webkit-box;
+//         font-size: 14px;
+//         color: $color-gray;
+//         line-height: 18px;
+//         max-height: 42px;
+//     }
+
+//     .item-title-row {
+//         display: flex;
+//         justify-content: space-between;
+
+//         .item-after {
+//             align-self: center;
+//         }
+//     }
+
+//     .item-row {
+//         display: flex;
+//         justify-content: space-between;
+//         box-sizing: border-box;
+//     }
+
+//     .item-cell {
+//         display: block;
+//         align-self: center;
+//         flex-shrink: 1;
+//         width: 100%;
+//         min-width: 0;
+//         margin-left: 15px;
+
+//         &:first-child {
+//             margin-left: 0;
+//         }
+//     }
+
+//     .item-footer, .item-header {
+//         font-weight: 400;
+//         font-size: 12px;
+//         line-height: 1.2;
+//         white-space: normal;
+//     }
+
+//     .list-group-title {
+//         position: relative;
+//         position: sticky;
+//         top: 0;
+//         z-index: 20;
+//     }
+
+//     .item-footer {
+//         color: $color-gray;
+//     }
+
+//     &.inset {
+//         margin-left: 15px;
+//         margin-right: 15px;
+//         border-radius: 7px;
+//         @include border-radius(7px);
+//         @include hairline-remove;
+
+//         .list-item {
+//             &:first-child > a {
+//                 @include border-radius(7px 7px 0 0);
+//             }
+
+//             &:last-child > a {
+//                 @include border-radius(0 0 7px 7px);
+//             }
+//         }
+//     }
+//     //简单列表
+//     &.list-simple {
+//         .list-item {
+//             padding-right: 15px;
+//         }
+//     }
+//     //带操作的列表
+//     &.list-links {
+//         a {
+//             padding-right: 35px;
+//             @include transition-dp(background-color);
+//         }
+//     }
+
+//     &.list-links a {
+//         color: inherit;
+//     }
+//     //操作图标
+//     &.list-links a, .item-link .item-inner {
+//         @include access-right;
+//     }
+
+//     &.list-simple li, &.list-links a {
+//         padding-left: 15px;
+//         height: $listHeight;
+//         line-height: $listHeight;
+//         max-width: 100%;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         align-content: center;
+//         white-space: nowrap;
+//         text-oveflow: ellipsis;
+//         max-width: 100%;
+//         @include hairline(bottom);
+
+//         &:after {
+//             width: auto;
+//             left: 15px;
+//             right: 0;
+//         }
+//     }
+//     //多媒体列表
+//     &.list-media {
+//         .item-inner {
+//             display: block;
+//             align-self: stretch;
+//             padding-top: 9px;
+//             padding-bottom: 9px;
+//         }
+
+//         .item-media {
+//             padding-top: 9px;
+//             padding-bottom: 10px;
+//             align-self: flex-start;
+//         }
+
+//         .item-title {
+//             font-weight: 600;
+//         }
+
+//         .item-link {
+//             .item-inner {
+//                 padding-right: 15px;
+//                 background-image: none;
+//             }
+
+//             .item-title-row {
+//                 padding-right: 20px;
+//                 background-position: right center !important;
+//                 @include access-right;
+//             }
+//         }
+
+//         &.list-access-center {
+//             .item-title-row {
+//                 padding-right: 0 !important;
+//                 background-image: none !important;
+//             }
+
+//             .item-link .item-inner {
+//                 padding-right: 35px;
+//                 @include access-right;
+//             }
+//         }
+//     }
+//     //点击的颜色
+//     &.list-links a, .item-link, &.list-media .item-link .item-title-row {
+//         &:active {
+//             background-color: $bgcolor_active;
+//         }
+//     }
+//     //最后的节点，没有下划线
+//     .list-item {
+//         &:last-child {
+//             @include hairline-remove(bottom);
+
+//             a, .list-button {
+//                 @include hairline-remove(bottom);
+//             }
+//         }
+
+//         &:last-child, &:last-child li:last-child {
+//             > .item-inner,
+//             > .item-content > .item-inner,
+//             > .item-link > .item-content > .item-inner {
+//                 @include hairline-remove(bottom)
+//             }
+//         }
+//     }
+// }

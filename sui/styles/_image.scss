@@ -1,0 +1,14 @@
+﻿.img-responsive {
+    @include img-responsive;
+}
+
+.img-thumbnail {
+    padding: $border-radius;
+    line-height: $line-height;
+    background-color: white;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    @include img-responsive(inline-block);
+}
+.img-rounded { border-radius: 6px; }
+.img-circle { border-radius: 50%; }
