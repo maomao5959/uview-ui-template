@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store/index.js'
+import http from './common/http'
+import sui from "common/sui.js"
 let vuexStore = require("@/store/$u.mixin.js");
 Vue.mixin(vuexStore);
 
 Vue.config.productionTip = false
+Vue.prototype.http = http;
+Vue.prototype.sui = sui;
 App.mpType = 'app'
 
 // 引入全局uView
@@ -12,7 +16,6 @@ import uView from 'uview-ui'
 import vSui from 'sui';
 Vue.use(uView);
 Vue.use(vSui);
-
 const app = new Vue({
 	...App,
 	store
@@ -24,6 +27,4 @@ Vue.use(httpInterceptor, app)
 // http接口API集中管理引入部分
 import httpApi from '@/common/http.api.js'
 Vue.use(httpApi, app)
-import homeApi from '@/api/home.api.js'
-Vue.use(homeApi,app)
 app.$mount()

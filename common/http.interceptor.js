@@ -27,7 +27,7 @@ const MSHttp = {
 		return str;
 	},
 	getOrderWithData: function(dic) {
-		if (dic == null) return '';
+		if (!dic) return '';
 		var result = "";
 		var sdic = Object.keys(dic).sort(function(a, b) {
 			return a.localeCompare(b)
@@ -35,6 +35,8 @@ const MSHttp = {
 		var value = "";
 		for (var ki in sdic) {
 			if (dic[sdic[ki]] == null) {
+				value = ""
+			} else if (typeof(dic[sdic[ki]]) == "undefined") {
 				value = ""
 			} else {
 				value = dic[sdic[ki]];

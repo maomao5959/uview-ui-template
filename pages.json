@@ -9,48 +9,12 @@
 				"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
 			}
 		}
-
-	],
-	// "tabBar": {
-	// 	"color": "#333333",
-	// 	"selectedColor": "#007aff",
-	// 	"borderStyle": "white",
-	// 	"backgroundColor": "#FFFFFF",
-	// 	"list": [{
-	// 		"pagePath": "",
-	// 		"text": "首页",
-	// 		"iconPath": "",
-	// 		"selectedIconPath": ""
-	// 	}, {
-	// 		"pagePath": "",
-	// 		"text": "租赁服务",
-	// 		"iconPath": "",
-	// 		"selectedIconPath": ""
-	// 	}, {
-	// 		"pagePath": "",
-	// 		"text": "购物车",
-	// 		"iconPath": "",
-	// 		"selectedIconPath": ""
-	// 	}, {
-	// 		"pagePath": "",
-	// 		"text": "个人中心",
-	// 		"iconPath": "",
-	// 		"selectedIconPath": ""
-	// 	}]
-	// },
+	
+    ],
 	"globalStyle": {
-		"navigationStyle": "custom",
+		"navigationStyle":"custom",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
-	},
-	"condition": { //模式配置，仅开发期间生效
-		"current": 0, //当前激活的模式（list 的索引项）
-		"list": [{
-			"name": "测试", //模式名称
-			"path": "pages/common/nearbyStores", //模式名称, //启动页面，必选
-			"query": "" //启动参数，在页面的onLoad函数里面得到。
-		}]
 	}
-
 
 }
