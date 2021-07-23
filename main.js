@@ -3,8 +3,15 @@ import App from './App'
 import store from './store/index.js'
 import http from './common/http'
 import sui from "common/sui.js"
+import {
+	msg
+} from '@/common/utils'
 let vuexStore = require("@/store/$u.mixin.js");
 Vue.mixin(vuexStore);
+
+Vue.prototype.$util = {
+	msg
+}
 
 Vue.config.productionTip = false
 Vue.prototype.http = http;
