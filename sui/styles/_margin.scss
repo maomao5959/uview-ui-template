@@ -7,4 +7,29 @@
     #{'.no-margin-t'} { margin-top: 0 !important; } 
     #{'.no-margin-b'} { margin-bottom: 0 !important; }
 }
+@mixin margin(){
+    #{'.margin'} { margin: $margin !important; } 
+    #{'.margin-hr'} { margin-left: $margin !important; margin-right: $margin !important; } 
+    #{'.margin-vr'} { margin-top: $margin !important; margin-bottom: $margin !important; } 
+    #{'.margin-l'} { margin-left: $margin !important; } 
+    #{'.margin-r'} { margin-right: $margin !important; } 
+    #{'.margin-t'} { margin-top: $margin !important; } 
+    #{'.margin-b'} { margin-bottom: $margin !important; }
+}
+@mixin margin-key($key,$value){
+    #{'.margin-' + $key} { margin: $value !important; } 
+    #{'.margin-hr-' + $key} { margin-left: $value !important; margin-right: $value !important; } 
+    #{'.margin-vr-' + $key} { margin-top: $value !important; margin-bottom: $value !important; } 
+    #{'.margin-l-' + $key} { margin-left: $value !important; } 
+    #{'.margin-r-' + $key} { margin-right: $value !important; } 
+    #{'.margin-t-' + $key} { margin-top: $value !important; } 
+    #{'.margin-b-' + $key} { margin-bottom: $value !important; }
+}
 @include no-margin;
+@include margin();
+@include margin-key('sm',15rpx);
+@include margin-key('xs',5rpx);
+@include margin-key('lg',35rpx);
+.margin {
+    margin: 30rpx;
+}
